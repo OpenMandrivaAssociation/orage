@@ -1,23 +1,19 @@
-#%define svn     svn_r20246
-#%define svnr    r20246
-%define __libtoolize /bin/true
-
-Summary: 	Time-managing application for Xfce
-Name: 		orage
-Version: 	4.4.1
-Release: 	%mkrel 1
+Summary:	Time-managing application for Xfce
+Name:		orage
+Version:	4.4.1
+Release:	%mkrel 2
 License:	GPL
-URL: 		http://www.xfce.org/
-Source0: 	%{name}-%{version}.tar.bz2
-Group: 		Graphical desktop/Xfce
-BuildRoot: 	%{_tmppath}/%{name}-root
-BuildRequires:  xfce-mcs-manager-devel >= 4.3.0
+URL:		http://www.xfce.org
+Group:		Graphical desktop/Xfce
+Source0:	%{name}-%{version}.tar.bz2
+BuildRequires:	xfce-mcs-manager-devel >= 4.3.0
 BuildRequires:	chrpath
 BuildRequires:	dbh-devel 
-BuildRequires:  xfce-panel-devel
-BuildRequires:  desktop-file-utils
+BuildRequires:	xfce-panel-devel
+BuildRequires:	desktop-file-utils
 Provides:	xfcalendar
 Obsoletes:	xfcalendar
+BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 Orage is a time-managing application for the Xfce desktop environment, 
@@ -33,39 +29,40 @@ featuring:
   avoiding overloads in the main working file.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 
 %build
-%configure2_5x --disable-rpath
+%configure2_5x \
+	--disable-static \
+	--enable-reentrant
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 %makeinstall_std 
 
 #disable rpath in _bin
-chrpath -d $RPM_BUILD_ROOT/%{_bindir}/*
+chrpath -d %{buildroot}/%{_bindir}/*
 
-#rm unneeded file
-rm -f ${RPM_BUILD_ROOT}/%{_libdir}/xfce4/mcs-plugins/*.*a
-rm -rf ${RPM_BUILD_ROOT}%{_datadir}/orage/doc
+rm -rf %{buildroot}%{_datadir}/orage/doc
 
-%find_lang %name
+%find_lang %{name}
 
+desktop-file-install --vendor="" \
+  --add-category="X-MandrivaLinux-Office-TasksManagement" \
+  --add-only-show-in="XFCE" \
+  --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
+  
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %post
-touch --no-create %{_datadir}/icons/hicolor || :
-if [ -x %{_bindir}/gtk-update-icon-cache ]; then
-   %{_bindir}/gtk-update-icon-cache --quiet %{_datadir}/icons/hicolor || :
-fi
+%{update_menus}
+%update_icon_cache hicolor
 
 %postun
-touch --no-create %{_datadir}/icons/hicolor || :
-if [ -x %{_bindir}/gtk-update-icon-cache ]; then
-   %{_bindir}/gtk-update-icon-cache --quiet %{_datadir}/icons/hicolor || :
-fi
+%{clean_menus}
+%clean_icon_cache hicolor
 
 %files -f %{name}.lang 
 %defattr(-,root,root)
@@ -75,9 +72,8 @@ fi
 %{_libdir}/xfce4
 %{_datadir}/applications/*
 %{_datadir}/xfce4/panel-plugins/orageclock.desktop
-%{_datadir}/icons/*
+%{_iconsdir}/hicolor/*/apps/*.png
+%{_iconsdir}/hicolor/*/apps/*.svg
 %dir %{_datadir}/orage
 %{_datadir}/orage/sounds/
 %{_datadir}/orage/zoneinfo
-
-

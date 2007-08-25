@@ -1,7 +1,7 @@
 Summary:	Time-managing application for Xfce
 Name:		orage
 Version:	4.4.1
-Release:	%mkrel 3
+Release:	%mkrel 4
 License:	GPL
 URL:		http://www.xfce.org
 Group:		Graphical desktop/Xfce
@@ -48,8 +48,7 @@ rm -rf %{buildroot}%{_datadir}/orage/doc
 
 %find_lang %{name}
 
-desktop-file-install --vendor="" \
-  --add-category="X-MandrivaLinux-Office-TasksManagement" \
+desktop-file-install \
   --add-only-show-in="XFCE" \
   --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
   

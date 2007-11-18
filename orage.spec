@@ -1,14 +1,14 @@
 Summary:	Time-managing application for Xfce
 Name:		orage
-Version:	4.4.1
-Release:	%mkrel 4
+Version:	4.4.2
+Release:	%mkrel 1
 License:	GPL
 URL:		http://www.xfce.org
 Group:		Graphical desktop/Xfce
 Source0:	%{name}-%{version}.tar.bz2
 BuildRequires:	xfce-mcs-manager-devel >= 4.3.0
 BuildRequires:	chrpath
-BuildRequires:	dbh-devel 
+BuildRequires:	dbh-devel
 BuildRequires:	xfce-panel-devel
 BuildRequires:	desktop-file-utils
 Provides:	xfcalendar
@@ -16,7 +16,7 @@ Obsoletes:	xfcalendar
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
-Orage is a time-managing application for the Xfce desktop environment, 
+Orage is a time-managing application for the Xfce desktop environment,
 featuring:
 - Time-based events
 - Data stored in ical format.
@@ -39,7 +39,7 @@ featuring:
 
 %install
 rm -rf %{buildroot}
-%makeinstall_std 
+%makeinstall_std
 
 #disable rpath in _bin
 chrpath -d %{buildroot}/%{_bindir}/*
@@ -51,7 +51,7 @@ rm -rf %{buildroot}%{_datadir}/orage/doc
 desktop-file-install \
   --add-only-show-in="XFCE" \
   --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
-  
+
 %clean
 rm -rf %{buildroot}
 
@@ -63,7 +63,7 @@ rm -rf %{buildroot}
 %{clean_menus}
 %clean_icon_cache hicolor
 
-%files -f %{name}.lang 
+%files -f %{name}.lang
 %defattr(-,root,root)
 %doc README ChangeLog INSTALL COPYING AUTHORS
 %doc doc/C/images/*.png doc/C/orage.html

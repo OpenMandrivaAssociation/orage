@@ -6,10 +6,9 @@ License:	GPL
 URL:		http://www.xfce.org
 Group:		Graphical desktop/Xfce
 Source0:	%{name}-%{version}.tar.bz2
-BuildRequires:	xfce-mcs-manager-devel >= 4.3.0
+BuildRequires:	xfce-mcs-manager-devel >= %{version}
 BuildRequires:	chrpath
-BuildRequires:	dbh-devel
-BuildRequires:	xfce-panel-devel
+BuildRequires:	xfce-panel-devel >= %{version}
 BuildRequires:	desktop-file-utils
 Provides:	xfcalendar
 Obsoletes:	xfcalendar

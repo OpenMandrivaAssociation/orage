@@ -8,7 +8,7 @@ Group:		Graphical desktop/Xfce
 Source0:	%{name}-%{version}.tar.bz2
 BuildRequires:	xfce-mcs-manager-devel >= %{version}
 BuildRequires:	chrpath
-BuildRequires:	xfce-panel-devel >= %{version}
+BuildRequires:	xfce4-panel-devel >= %{version}
 BuildRequires:	desktop-file-utils
 Provides:	xfcalendar
 Obsoletes:	xfcalendar

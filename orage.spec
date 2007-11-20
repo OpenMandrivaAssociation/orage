@@ -1,8 +1,8 @@
-Summary:	Time-managing application for Xfce
+Summary:	Time-managing application for Xfce desktop environment
 Name:		orage
 Version:	4.4.2
 Release:	%mkrel 1
-License:	GPL
+License:	GPLv2+
 URL:		http://www.xfce.org
 Group:		Graphical desktop/Xfce
 Source0:	%{name}-%{version}.tar.bz2
@@ -10,6 +10,8 @@ BuildRequires:	xfce-mcs-manager-devel >= %{version}
 BuildRequires:	chrpath
 BuildRequires:	xfce4-panel-devel >= %{version}
 BuildRequires:	desktop-file-utils
+BuildRequires:	libdb4.2-devel
+BuildRequires:	libical-devel
 Provides:	xfcalendar
 Obsoletes:	xfcalendar
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
@@ -17,6 +19,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 %description
 Orage is a time-managing application for the Xfce desktop environment,
 featuring:
+
 - Time-based events
 - Data stored in ical format.
 - Recurring appointments
@@ -33,7 +36,8 @@ featuring:
 %build
 %configure2_5x \
 	--disable-static \
-	--enable-reentrant
+	--enable-reentrant \
+	--with-bdb4
 %make
 
 %install
@@ -64,7 +68,7 @@ rm -rf %{buildroot}
 
 %files -f %{name}.lang
 %defattr(-,root,root)
-%doc README ChangeLog INSTALL COPYING AUTHORS
+%doc README ChangeLog AUTHORS
 %doc doc/C/images/*.png doc/C/orage.html
 %{_bindir}/*
 %{_libdir}/xfce4

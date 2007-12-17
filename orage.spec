@@ -14,7 +14,6 @@ BuildRequires:	libdb4.2-devel
 BuildRequires:	libical-devel
 Provides:	xfcalendar
 Obsoletes:	xfcalendar
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 Orage is a time-managing application for the Xfce desktop environment,

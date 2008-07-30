@@ -1,7 +1,7 @@
 Summary:	Time-managing application for Xfce desktop environment
 Name:		orage
 Version:	4.4.2
-Release:	%mkrel 2
+Release:	%mkrel 4
 License:	GPLv2+
 URL:		http://www.xfce.org
 Group:		Graphical desktop/Xfce

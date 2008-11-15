@@ -5,7 +5,7 @@ Release:	%mkrel 1
 License:	GPLv2+
 URL:		http://www.xfce.org
 Group:		Graphical desktop/Xfce
-Source0:	%{name}-%{version}.tar.bz2
+Source0:	http://www.xfce.org/archive/xfce-%{version}/src/%{name}-%{version}.tar.bz2
 BuildRequires:	chrpath
 BuildRequires:	xfce4-panel-devel >= %{version}
 BuildRequires:	desktop-file-utils

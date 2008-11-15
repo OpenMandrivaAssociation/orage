@@ -1,6 +1,6 @@
 Summary:	Time-managing application for Xfce desktop environment
 Name:		orage
-Version:	4.5.91
+Version:	4.5.92
 Release:	%mkrel 1
 License:	GPLv2+
 URL:		http://www.xfce.org
@@ -37,6 +37,8 @@ featuring:
 	--disable-static \
 	--enable-reentrant \
 	--enable-dbus \
+	--enable-archive \
+	--enable-libnotify \
 	--disable-libxfce4mcs
 %make
 

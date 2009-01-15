@@ -33,6 +33,8 @@ featuring:
 %setup -q
 
 %build
+%define Werror_cflags %nil
+
 %configure2_5x \
 	--disable-static \
 	--enable-reentrant \

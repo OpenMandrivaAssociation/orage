@@ -1,13 +1,13 @@
 Summary:	Time-managing application for Xfce desktop environment
 Name:		orage
-Version:	4.6.0
-Release:	%mkrel 2
+Version:	4.6.1
+Release:	%mkrel 1
 License:	GPLv2+
-URL:		http://www.xfce.org
 Group:		Graphical desktop/Xfce
+URL:		http://www.xfce.org
 Source0:	http://www.xfce.org/archive/xfce-%{version}/src/%{name}-%{version}.tar.bz2
 BuildRequires:	chrpath
-BuildRequires:	xfce4-panel-devel >= %{version}
+BuildRequires:	xfce4-panel-devel >= 4.6.0
 BuildRequires:	desktop-file-utils
 BuildRequires:	libical-devel
 BuildRequires:	libnotify-devel
@@ -89,4 +89,3 @@ rm -rf %{buildroot}
 %{_datadir}/orage/zoneinfo
 %{_datadir}/dbus-1/services/org.xfce.*.service
 %{_mandir}/man1/*.*
-

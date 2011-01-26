@@ -1,13 +1,15 @@
+%define url_ver %(echo %{version} | cut -c 1-3)
+
 Summary:	Time-managing application for Xfce desktop environment
 Name:		orage
-Version:	4.6.1
-Release:	%mkrel 4
+Version:	4.8.0
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
-Source0:	http://www.xfce.org/archive/xfce-%{version}/src/%{name}-%{version}.tar.bz2
+Source0:	http://archive.xfce.org/src/apps/orage/%{url_ver}/%{name}-%{version}.tar.bz2
 BuildRequires:	chrpath
-BuildRequires:	xfce4-panel-devel >= 4.6.0
+BuildRequires:	xfce4-panel-devel >= 4.8.0
 BuildRequires:	desktop-file-utils
 BuildRequires:	libical-devel
 BuildRequires:	libnotify-devel
@@ -41,7 +43,8 @@ featuring:
 	--enable-dbus \
 	--enable-archive \
 	--enable-libnotify \
-	--disable-libxfce4mcs
+	--enable-libxfce4panel
+
 %make
 
 %install
@@ -62,18 +65,6 @@ desktop-file-install \
 %clean
 rm -rf %{buildroot}
 
-%if %mdkversion < 200900
-%post
-%{update_menus}
-%update_icon_cache hicolor
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%clean_icon_cache hicolor
-%endif
-
 %files -f %{name}.lang
 %defattr(-,root,root)
 %doc README AUTHORS
@@ -81,11 +72,10 @@ rm -rf %{buildroot}
 %{_bindir}/*
 %{_libdir}/xfce4
 %{_datadir}/applications/*
-%{_datadir}/xfce4/panel-plugins/orageclock.desktop
+%{_datadir}/xfce4/panel-plugins/xfce4-orageclock-plugin.desktop
 %{_iconsdir}/hicolor/*/apps/*.png
 %{_iconsdir}/hicolor/*/apps/*.svg
 %dir %{_datadir}/orage
 %{_datadir}/orage/sounds/
-%{_datadir}/orage/zoneinfo
 %{_datadir}/dbus-1/services/org.xfce.*.service
 %{_mandir}/man1/*.*

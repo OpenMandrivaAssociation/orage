@@ -12,6 +12,7 @@ BuildRequires:	chrpath
 BuildRequires:	xfce4-panel-devel >= 4.8.0
 BuildRequires:	desktop-file-utils
 BuildRequires:	libical-devel
+BuildRequires:	dbus-glib-devel
 BuildRequires:	libnotify-devel
 Provides:	xfcalendar
 Obsoletes:	xfcalendar < 4.5

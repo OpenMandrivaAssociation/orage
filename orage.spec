@@ -2,8 +2,8 @@
 
 Summary:	Time-managing application for Xfce desktop environment
 Name:		orage
-Version:	4.8.1
-Release:	%mkrel 3
+Version:	4.8.2
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
@@ -80,6 +80,7 @@ rm -rf %{buildroot}
 %{_datadir}/xfce4/panel-plugins/xfce4-orageclock-plugin.desktop
 %{_iconsdir}/hicolor/*/apps/*.png
 %{_iconsdir}/hicolor/*/apps/*.svg
+%{_iconsdir}/hicolor/*/apps/*.xpm
 %dir %{_datadir}/orage
 %{_datadir}/orage/sounds/
 %{_datadir}/dbus-1/services/org.xfce.*.service

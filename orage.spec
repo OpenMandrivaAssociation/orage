@@ -2,14 +2,14 @@
 
 Summary:	Time-managing application for Xfce desktop environment
 Name:		orage
-Version:	4.8.2
-Release:	%mkrel 1
+Version:	4.8.3
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
 Source0:	http://archive.xfce.org/src/apps/orage/%{url_ver}/%{name}-%{version}.tar.bz2
 BuildRequires:	chrpath
-BuildRequires:	xfce4-panel-devel >= 4.8.0
+BuildRequires:	xfce4-panel-devel >= 4.9.0
 BuildRequires:	desktop-file-utils
 BuildRequires:	libical-devel
 BuildRequires:	dbus-glib-devel
@@ -20,7 +20,6 @@ BuildRequires:	bison
 BuildRequires:	flex
 Provides:	xfcalendar
 Obsoletes:	xfcalendar < 4.5
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 Orage is a time-managing application for the Xfce desktop environment,
@@ -53,7 +52,6 @@ featuring:
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 #disable rpath in _bin
@@ -61,17 +59,13 @@ chrpath -d %{buildroot}/%{_bindir}/*
 
 rm -rf %{buildroot}%{_datadir}/orage/doc
 
-%find_lang %{name}
+%find_lang %{name} %{name}.lang
 
 desktop-file-install \
   --add-only-show-in="XFCE" \
   --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
-%clean
-rm -rf %{buildroot}
-
 %files -f %{name}.lang
-%defattr(-,root,root)
 %doc README AUTHORS
 %doc doc/C/images/*.png doc/C/orage.html
 %{_bindir}/*

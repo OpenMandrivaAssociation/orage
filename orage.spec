@@ -11,10 +11,10 @@ Source0:	http://archive.xfce.org/src/apps/orage/%{url_ver}/%{name}-%{version}.ta
 BuildRequires:	chrpath
 BuildRequires:	xfce4-panel-devel >= 4.9.0
 BuildRequires:	desktop-file-utils
-BuildRequires:	libical-devel
+BuildRequires:	pkgconfig(libical)
 BuildRequires:	dbus-glib-devel
 BuildRequires:	dbus-devel
-BuildRequires:	libnotify-devel
+BuildRequires:	pkgconfig(libnotify)
 BuildRequires:	popt-devel
 BuildRequires:	bison
 BuildRequires:	flex

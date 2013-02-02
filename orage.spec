@@ -2,8 +2,8 @@
 
 Summary:	Time-managing application for Xfce desktop environment
 Name:		orage
-Version:	4.8.3
-Release:	3
+Version:	4.8.4
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
@@ -18,7 +18,7 @@ BuildRequires:	pkgconfig(libnotify)
 BuildRequires:	popt-devel
 BuildRequires:	bison
 BuildRequires:	flex
-Provides:	xfcalendar
+Provides:	xfcalendar = %{version}
 Obsoletes:	xfcalendar < 4.5
 
 %description

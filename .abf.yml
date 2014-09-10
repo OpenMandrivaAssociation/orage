@@ -1,3 +1,4 @@
----
-sources:
+removed_sources:
   orage-4.8.4.tar.bz2: 8b9facb0393385e4d639dd6a886c216729672958
+sources:
+  orage-4.10.0.tar.bz2: 1d19e097958b710005789973d385ca13338b26f9

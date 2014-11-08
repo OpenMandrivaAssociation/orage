@@ -41,7 +41,7 @@ featuring:
 %build
 %define Werror_cflags %nil
 
-%configure2_5x \
+%configure \
 	--disable-static \
 	--enable-reentrant \
 	--enable-dbus \
@@ -72,6 +72,7 @@ desktop-file-install \
 %{_libdir}/xfce4
 %{_datadir}/applications/*
 %{_datadir}/xfce4/panel-plugins/xfce4-orageclock-plugin.desktop
+%{_libexecdir}/xfce4/panel-plugins/xfce4-orageclock-plugin
 %{_iconsdir}/hicolor/*/apps/*.png
 %{_iconsdir}/hicolor/*/apps/*.svg
 %{_iconsdir}/hicolor/*/apps/*.xpm

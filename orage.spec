@@ -69,7 +69,6 @@ desktop-file-install \
 %doc README AUTHORS
 %doc doc/C/images/*.png doc/C/orage.html
 %{_bindir}/*
-%{_libdir}/xfce4
 %{_datadir}/applications/*
 %{_datadir}/xfce4/panel-plugins/xfce4-orageclock-plugin.desktop
 %{_libexecdir}/xfce4/panel-plugins/xfce4-orageclock-plugin

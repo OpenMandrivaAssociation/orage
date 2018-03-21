@@ -1,4 +1,4 @@
-%define url_ver %(echo %{version} | cut -c 1-4)
+%define url_ver %(echo %{version} | cut -d. -f 1,2)
 
 Summary:	Time-managing application for Xfce desktop environment
 Name:		orage

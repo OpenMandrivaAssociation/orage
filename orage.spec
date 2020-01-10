@@ -38,7 +38,7 @@ featuring:
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 %define Werror_cflags %nil

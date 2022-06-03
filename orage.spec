@@ -2,19 +2,20 @@
 
 Summary:	Time-managing application for Xfce desktop environment
 Name:		orage
-Version:	4.12.1
+Version:	4.16.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
 Source0:	http://archive.xfce.org/src/apps/orage/%{url_ver}/%{name}-%{version}.tar.bz2
-Patch1:		orage-4.12.1-libical3.patch
+#Patch1:		orage-4.12.1-libical3.patch
 BuildRequires:	chrpath
 BuildRequires:	xfce4-panel-devel >= 4.9.0
 BuildRequires:	desktop-file-utils
 BuildRequires:	pkgconfig(libical)
 BuildRequires:	dbus-glib-devel
 BuildRequires:	dbus-devel
+BuildRequires:	pkgconfig(libxfce4ui-2)
 BuildRequires:	pkgconfig(libnotify)
 BuildRequires:	popt-devel
 BuildRequires:	bison
@@ -51,10 +52,10 @@ featuring:
 	--enable-libnotify \
 	--enable-libxfce4panel
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 #disable rpath in _bin
 chrpath -d %{buildroot}/%{_bindir}/*
@@ -68,16 +69,14 @@ desktop-file-install \
   --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 %files -f %{name}.lang
-%doc README AUTHORS
-%doc doc/C/images/*.png doc/C/orage.html
+%doc README.md AUTHORS
 %{_bindir}/*
 %{_datadir}/applications/*
-%{_datadir}/xfce4/panel/plugins/xfce4-orageclock-plugin.desktop
+%{_datadir}/xfce4/panel/plugins/org.xfce.orage.clock-plugin.desktop
 %{_libdir}/xfce4/panel/plugins/liborageclock.so
-%{_iconsdir}/hicolor/*/apps/*.png
-%{_iconsdir}/hicolor/*/apps/*.svg
-%{_iconsdir}/hicolor/*/apps/*.xpm
 %dir %{_datadir}/orage
 %{_datadir}/orage/sounds/
 %{_datadir}/dbus-1/services/org.xfce.*.service
-%{_mandir}/man1/*.*
+%{_datadir}/metainfo/org.xfce.orage.appdata.xml
+%{_iconsdir}/hicolor/*x*/apps/*
+%{_iconsdir}/hicolor/scalable/apps/*

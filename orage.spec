@@ -72,12 +72,11 @@ desktop-file-install \
 %doc README.md AUTHORS
 %{_bindir}/*
 %{_datadir}/applications/*
-#{_datadir}/xfce4/panel/plugins/xfce4-orageclock-plugin.desktop
+%{_datadir}/xfce4/panel/plugins/org.xfce.orage.clock-plugin.desktop
 %{_libdir}/xfce4/panel/plugins/liborageclock.so
-#{_iconsdir}/hicolor/*/apps/*.png
-#{_iconsdir}/hicolor/*/apps/*.svg
-#{_iconsdir}/hicolor/*/apps/*.xpm
 %dir %{_datadir}/orage
 %{_datadir}/orage/sounds/
 %{_datadir}/dbus-1/services/org.xfce.*.service
-#{_mandir}/man1/*.*
+%{_datadir}/metainfo/org.xfce.orage.appdata.xml
+%{_iconsdir}/hicolor/*x*/apps/*
+%{_iconsdir}/hicolor/scalable/apps/*

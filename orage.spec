@@ -69,16 +69,15 @@ desktop-file-install \
   --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 %files -f %{name}.lang
-%doc README AUTHORS
-%doc doc/C/images/*.png doc/C/orage.html
+%doc README.md AUTHORS
 %{_bindir}/*
 %{_datadir}/applications/*
-%{_datadir}/xfce4/panel/plugins/xfce4-orageclock-plugin.desktop
+#{_datadir}/xfce4/panel/plugins/xfce4-orageclock-plugin.desktop
 %{_libdir}/xfce4/panel/plugins/liborageclock.so
-%{_iconsdir}/hicolor/*/apps/*.png
-%{_iconsdir}/hicolor/*/apps/*.svg
-%{_iconsdir}/hicolor/*/apps/*.xpm
+#{_iconsdir}/hicolor/*/apps/*.png
+#{_iconsdir}/hicolor/*/apps/*.svg
+#{_iconsdir}/hicolor/*/apps/*.xpm
 %dir %{_datadir}/orage
 %{_datadir}/orage/sounds/
 %{_datadir}/dbus-1/services/org.xfce.*.service
-%{_mandir}/man1/*.*
+#{_mandir}/man1/*.*

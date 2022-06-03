@@ -2,13 +2,13 @@
 
 Summary:	Time-managing application for Xfce desktop environment
 Name:		orage
-Version:	4.12.1
+Version:	4.16.0
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org
 Source0:	http://archive.xfce.org/src/apps/orage/%{url_ver}/%{name}-%{version}.tar.bz2
-Patch1:		orage-4.12.1-libical3.patch
+#Patch1:		orage-4.12.1-libical3.patch
 BuildRequires:	chrpath
 BuildRequires:	xfce4-panel-devel >= 4.9.0
 BuildRequires:	desktop-file-utils

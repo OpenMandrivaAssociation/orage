@@ -15,6 +15,7 @@ BuildRequires:	desktop-file-utils
 BuildRequires:	pkgconfig(libical)
 BuildRequires:	dbus-glib-devel
 BuildRequires:	dbus-devel
+BuildRequires:	pkgconfig(libxfce4ui-2)
 BuildRequires:	pkgconfig(libnotify)
 BuildRequires:	popt-devel
 BuildRequires:	bison
@@ -51,10 +52,10 @@ featuring:
 	--enable-libnotify \
 	--enable-libxfce4panel
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 #disable rpath in _bin
 chrpath -d %{buildroot}/%{_bindir}/*

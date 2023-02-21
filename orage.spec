@@ -72,8 +72,8 @@ desktop-file-install \
 %doc README.md AUTHORS
 %{_bindir}/*
 %{_datadir}/applications/*
-%{_datadir}/xfce4/panel/plugins/org.xfce.orage.clock-plugin.desktop
-%{_libdir}/xfce4/panel/plugins/liborageclock.so
+#{_datadir}/xfce4/panel/plugins/org.xfce.orage.clock-plugin.desktop
+#{_libdir}/xfce4/panel/plugins/liborageclock.so
 %dir %{_datadir}/orage
 %{_datadir}/orage/sounds/
 %{_datadir}/dbus-1/services/org.xfce.*.service

@@ -1,4 +1,5 @@
 %define url_ver %(echo %{version} | cut -d. -f 1,2)
+%global optflags %{optflags} -Wno-error -Wno-implicit-function-declaration
 
 Summary:	Time-managing application for Xfce desktop environment
 Name:		orage

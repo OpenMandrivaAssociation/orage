@@ -10,7 +10,7 @@ Group:		Graphical desktop/Xfce
 URL:		https://www.xfce.org
 Source0:	http://archive.xfce.org/src/apps/orage/%{url_ver}/%{name}-%{version}.tar.bz2
 # from Arch
-Patch0:		libical-4.patch
+#Patch0:		libical-4.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool-base

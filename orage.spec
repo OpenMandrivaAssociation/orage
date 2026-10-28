@@ -3,13 +3,14 @@
 
 Summary:	Time-managing application for Xfce desktop environment
 Name:		orage
-Version:	4.20.2
-Release:	2
+Version:	4.20.3
+Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		https://www.xfce.org
 Source0:	http://archive.xfce.org/src/apps/orage/%{url_ver}/%{name}-%{version}.tar.bz2
-#Patch1:		orage-4.12.1-libical3.patch
+# from Arch
+Patch0:		libical-4.patch
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool-base
@@ -44,8 +45,7 @@ featuring:
   avoiding overloads in the main working file.
 
 %prep
-%setup -q
-%autopatch -p1
+%autosetup -p1
 
 %build
 %define Werror_cflags %nil

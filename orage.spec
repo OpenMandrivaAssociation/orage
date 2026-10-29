@@ -46,6 +46,13 @@ featuring:
 
 %prep
 %autosetup -p1
+# libical 4 API changes
+sed -i \
+    -e 's/icalcomponent_new_clone(/icalcomponent_clone(/g' \
+    -e 's/icaltime_subtract(/icalduration_from_times(/g' \
+    -e 's/icaltime_add(/icalduration_extend(/g' \
+    src/ical-expimp.c \
+    src/ical-archive.c
 
 %build
 %define Werror_cflags %nil
@@ -58,7 +65,6 @@ featuring:
 	--enable-libnotify \
 	--enable-libxfce4panel
 	
-sed -n '300,312l' Makefile
 %make_build
 
 %install

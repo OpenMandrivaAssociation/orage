@@ -16,6 +16,7 @@ BuildRequires:	chrpath
 BuildRequires:	xfce4-panel-devel >= 4.9.0
 BuildRequires:	desktop-file-utils
 BuildRequires:	pkgconfig(libical)
+BuildRequires:	pkgconfig(libical-glib)
 BuildRequires:	dbus-glib-devel
 BuildRequires:	dbus-devel
 BuildRequires:	pkgconfig(libxfce4ui-2)

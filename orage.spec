@@ -10,10 +10,7 @@ Group:		Graphical desktop/Xfce
 URL:		https://www.xfce.org
 #Source0:	http://archive.xfce.org/src/apps/orage/%{url_ver}/%{name}-%{version}.tar.bz2
 Source0:	orage-master.tar.bz2
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	libtool-base
-BuildRequires:	slibtool
+BuildRequires:	meson
 BuildRequires:	make
 BuildRequires:	chrpath
 BuildRequires:	xfce4-panel-devel >= 4.9.0
@@ -49,18 +46,14 @@ featuring:
 %build
 %define Werror_cflags %nil
 
-%configure \
-	--disable-static \
-	--enable-reentrant \
-	--enable-dbus \
-	--enable-archive \
-	--enable-libnotify \
-	--enable-libxfce4panel
+%meson	\
+		-Dlibnotify=enabled \
+		-Darchive=true
 	
-%make_build
+%meson_build
 
 %install
-%make_install
+%meson_install
 
 #disable rpath in _bin
 chrpath -d %{buildroot}/%{_bindir}/*

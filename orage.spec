@@ -51,8 +51,11 @@ sed -i \
     -e 's/icalcomponent_new_clone(/icalcomponent_clone(/g' \
     -e 's/icaltime_subtract(/icalduration_from_times(/g' \
     -e 's/icaltime_add(/icalduration_extend(/g' \
+    -e 's/icaldurationtype_from_int(/icaldurationtype_from_seconds(/g' \
+    -e 's/icaldurationtype_as_int(/icaldurationtype_as_seconds(/g' \
     src/ical-expimp.c \
-    src/ical-archive.c
+    src/ical-archive.c \
+    src/ical-code.c
 
 %build
 %define Werror_cflags %nil

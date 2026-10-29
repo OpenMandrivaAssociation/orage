@@ -4,13 +4,12 @@
 Summary:	Time-managing application for Xfce desktop environment
 Name:		orage
 Version:	4.20.3
-Release:	1
+Release:	1.git.20261029
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		https://www.xfce.org
-Source0:	http://archive.xfce.org/src/apps/orage/%{url_ver}/%{name}-%{version}.tar.bz2
-# from Arch
-#Patch0:		libical-4.patch
+#Source0:	http://archive.xfce.org/src/apps/orage/%{url_ver}/%{name}-%{version}.tar.bz2
+Source0:	orage-master.tar.bz2
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libtool-base
@@ -45,17 +44,7 @@ featuring:
   avoiding overloads in the main working file.
 
 %prep
-%autosetup -p1
-# libical 4 API changes
-sed -i \
-    -e 's/icalcomponent_new_clone(/icalcomponent_clone(/g' \
-    -e 's/icaltime_subtract(/icalduration_from_times(/g' \
-    -e 's/icaltime_add(/icalduration_extend(/g' \
-    -e 's/icaldurationtype_from_int(/icaldurationtype_from_seconds(/g' \
-    -e 's/icaldurationtype_as_int(/icaldurationtype_as_seconds(/g' \
-    src/ical-expimp.c \
-    src/ical-archive.c \
-    src/ical-code.c
+%autosetup -n orage-master -p1
 
 %build
 %define Werror_cflags %nil

@@ -57,7 +57,8 @@ featuring:
 	--enable-archive \
 	--enable-libnotify \
 	--enable-libxfce4panel
-
+	
+sed -n '300,312l' Makefile
 %make_build
 
 %install

@@ -4,22 +4,19 @@
 Summary:	Time-managing application for Xfce desktop environment
 Name:		orage
 Version:	4.20.3
-Release:	1
+Release:	1.git.20261029
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		https://www.xfce.org
-Source0:	http://archive.xfce.org/src/apps/orage/%{url_ver}/%{name}-%{version}.tar.bz2
-# from Arch
-#Patch0:		libical-4.patch
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	libtool-base
-BuildRequires:	slibtool
+#Source0:	http://archive.xfce.org/src/apps/orage/%{url_ver}/%{name}-%{version}.tar.bz2
+Source0:	orage-master.tar.bz2
+BuildRequires:	meson
 BuildRequires:	make
 BuildRequires:	chrpath
 BuildRequires:	xfce4-panel-devel >= 4.9.0
 BuildRequires:	desktop-file-utils
 BuildRequires:	pkgconfig(libical)
+BuildRequires:	pkgconfig(libical-glib)
 BuildRequires:	dbus-glib-devel
 BuildRequires:	dbus-devel
 BuildRequires:	pkgconfig(libxfce4ui-2)
@@ -45,33 +42,19 @@ featuring:
   avoiding overloads in the main working file.
 
 %prep
-%autosetup -p1
-# libical 4 API changes
-sed -i \
-    -e 's/icalcomponent_new_clone(/icalcomponent_clone(/g' \
-    -e 's/icaltime_subtract(/icalduration_from_times(/g' \
-    -e 's/icaltime_add(/icalduration_extend(/g' \
-    -e 's/icaldurationtype_from_int(/icaldurationtype_from_seconds(/g' \
-    -e 's/icaldurationtype_as_int(/icaldurationtype_as_seconds(/g' \
-    src/ical-expimp.c \
-    src/ical-archive.c \
-    src/ical-code.c
+%autosetup -n orage-master -p1
 
 %build
 %define Werror_cflags %nil
 
-%configure \
-	--disable-static \
-	--enable-reentrant \
-	--enable-dbus \
-	--enable-archive \
-	--enable-libnotify \
-	--enable-libxfce4panel
+%meson	\
+		-Dlibnotify=enabled \
+		-Darchive=true
 	
-%make_build
+%meson_build
 
 %install
-%make_install
+%meson_install
 
 #disable rpath in _bin
 chrpath -d %{buildroot}/%{_bindir}/*
